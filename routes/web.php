@@ -8,8 +8,18 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ListProdukController;
 
 
-Route::get('listproduk', [ListProdukController::class, 'show'] );
+Route::get('/listproduk', [ListProdukController::class, 'show'])->name('produk.list');
+
 Route::post('/produk/simpan', [ListProdukController::class, 'simpan'])->name('produk.simpan');
+
+// Route untuk edit produk
+Route::get('/produk/edit/{id}', [ListProdukController::class, 'edit'])->name('produk.edit');
+
+// Route untuk hapus produk
+Route::delete('/produk/delete/{id}', [ListProdukController::class, 'delete'])->name('produk.delete');
+
+// Route untuk update
+Route::put('/produk/update/{id}', [ListProdukController::class, 'update'])->name('produk.update');
 // routes/web.php
 
 // Route::get('/welcome', function () {
